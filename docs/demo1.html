@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!-- flame-special-effects - flame special effects.
+Copyright (C) 2024-2025  Yu Hongbo, CNOCTAVE
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as
+published by the Free Software Foundation, either version 3 of the
+License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Flame Special Effects Demo</title>
+    <style>
+        #flame-container {
+            width: 500px;
+            height: 500px;
+            background: #111;
+            margin: 40px auto;
+            border-radius: 16px;
+            box-shadow: 0 0 32px #ff9800aa;
+            position: relative;
+        }
+        .controls {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .controls label {
+            color: #fff;
+            margin-right: 8px;
+        }
+        body {
+            background: #222;
+        }
+    </style>
+</head>
+<body>
+    <div id="flame-container"></div>
+    <div class="controls">
+        <label for="level">火势：</label>
+        <input type="range" id="level" min="0" max="100" value="50">
+        <span id="level-value">50</span>
+        <button id="destroy-btn">销毁火焰</button>
+        <button id="init-btn">重新创建</button>
+    </div>
+    <!-- three.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
+    <!-- flame-special-effects.js -->
+    <script src="flame-special-effects.js"></script>
+    <script>
+        var flame = window.FlameSpecialEffects;
+        function initFlame() {
+            flame.init('flame-container');
+        }
+        document.getElementById('level').addEventListener('input', function(e) {
+            var val = +e.target.value;
+            document.getElementById('level-value').textContent = val;
+            flame.changeLevel(val);
+        });
+        document.getElementById('destroy-btn').onclick = function() {
+            flame.destroy();
+        };
+        document.getElementById('init-btn').onclick = function() {
+            flame.destroy();
+            setTimeout(initFlame, 100);
+        };
+        // 初始化
+        initFlame();
+    </script>
+</body>
+</html>
