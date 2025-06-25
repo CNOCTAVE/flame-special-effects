@@ -1,0 +1,30 @@
+{
+  "name": "flame-special-effects",
+  "version": "1.0.0",
+  "description": "flame-special-effects - flame special effects.",
+  "main": "flame-special-effects.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CNOCTAVE/flame-special-effects.git"
+  },
+  "keywords": [
+    "flame",
+    "special",
+    "effects",
+    "CNOCTAVE",
+    "Yu",
+    "Hongbo"
+  ],
+  "author": "CNOCTAVE, Yu Hongbo",
+  "license": "AGPL-3.0-only",
+  "bugs": {
+    "url": "https://github.com/CNOCTAVE/flame-special-effects/issues"
+  },
+  "homepage": "https://github.com/CNOCTAVE/flame-special-effects#readme"
+}
